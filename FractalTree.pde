@@ -9,10 +9,9 @@ public void setup()
 public void draw() 
 {   
     background(150, 190, 255);  
-	strokeWeight(12);
+	strokeWeight(4);
 	stroke(86, 41, 28);
 	line(320,480,320,380);
-	stroke(60, 147, 105);
 	drawBranches(320, 380, 100, 3*Math.PI/2);
 } 
 public void drawBranches(int x,int y, double branchLength, double angle) 
@@ -25,6 +24,11 @@ public void drawBranches(int x,int y, double branchLength, double angle)
 	int endX2 = (int)(branchLength*Math.cos(angle2) + x); 
 	int endY2 = (int)(branchLength*Math.sin(angle2) + y);
 	strokeWeight(3);
+	if(branchLength > 20) {
+		stroke(86, 41, 28);
+	} else {
+		stroke(60, 147, 105);
+	}
 	line(x, y, endX1, endY1);
 	line(x, y,endX2, endY2);
 	if (branchLength > 10) {
